@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 <title>GreenTrack – Low-Carbon Action Hub</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -17,127 +17,145 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(6,13,26,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--green)}.logo span{color:var(--text)}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;cursor:pointer;transition:color .2s}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.5rem;background:rgba(6,13,26,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--green)}.logo span{color:var(--text)}
+.nav-links{display:flex;gap:1.25rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;cursor:pointer;transition:color .2s}
 .nav-links a:hover{color:var(--green)}
-.badge{background:var(--green3);color:#d1fae5;padding:.3rem .9rem;border-radius:100px;font-size:.72rem;font-weight:700}
+.badge{background:var(--green3);color:#dbeafe;padding:.28rem .75rem;border-radius:100px;font-size:.68rem;font-weight:700;white-space:nowrap}
+@media(max-width:480px){.nav-links{display:none}.badge{font-size:.62rem;padding:.25rem .6rem}}
 
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2.5rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:20%;right:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(96,165,250,.07) 0%,transparent 70%);pointer-events:none}
-.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);color:var(--green);padding:.35rem .9rem;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:1.5rem;width:fit-content}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;max-width:780px}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 1.5rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:20%;right:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(96,165,250,.08) 0%,transparent 70%);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);color:var(--green);padding:.3rem .8rem;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.04em;margin-bottom:1.25rem;width:fit-content}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,8vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;max-width:780px}
 .hero h1 em{font-style:normal;color:var(--green)}
-.hero p{max-width:500px;color:var(--muted);font-size:1rem;line-height:1.75;margin-top:1.5rem}
-.hero-stats{display:flex;gap:3rem;margin-top:2.5rem;flex-wrap:wrap}
-.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--green)}
-.stat-label{font-size:.78rem;color:var(--muted);margin-top:.15rem}
-.hero-btns{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
-.btn-p{background:var(--green);color:#060d1a;padding:.75rem 1.75rem;border-radius:8px;font-weight:700;font-size:.875rem;border:none;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.hero p{max-width:500px;color:var(--muted);font-size:.95rem;line-height:1.75;margin-top:1.25rem}
+.hero-stats{display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:var(--green)}
+.stat-label{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+.hero-btns{display:flex;gap:.75rem;margin-top:1.75rem;flex-wrap:wrap}
+.btn-p{background:var(--green);color:#060d1a;padding:.7rem 1.5rem;border-radius:8px;font-weight:700;font-size:.85rem;border:none;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;flex:1;min-width:140px;text-align:center}
 .btn-p:hover{background:var(--lime);transform:translateY(-2px)}
-.btn-o{background:transparent;color:var(--text);padding:.75rem 1.75rem;border-radius:8px;font-weight:600;font-size:.875rem;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.btn-o{background:transparent;color:var(--text);padding:.7rem 1.5rem;border-radius:8px;font-weight:600;font-size:.85rem;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;flex:1;min-width:140px;text-align:center}
 .btn-o:hover{border-color:var(--green);color:var(--green)}
+@media(max-width:360px){.btn-p,.btn-o{min-width:100%}}
 
-.impact-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem}
-.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:900px;margin:0 auto}
-@media(max-width:600px){.impact-grid{grid-template-columns:repeat(2,1fr)}}
+/* IMPACT STRIP */
+.impact-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 1.5rem}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:900px;margin:0 auto}
+@media(max-width:600px){.impact-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
 .impact-item{text-align:center}
-.impact-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--green),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.impact-label{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.impact-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--green),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.impact-label{font-size:.7rem;color:var(--muted);margin-top:.2rem}
 
-section{padding:5rem 2.5rem}
-.sec-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:.6rem}
-.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:.75rem}
-.sec-sub{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:520px}
+/* SECTIONS */
+section{padding:3.5rem 1.5rem}
+@media(min-width:768px){section{padding:5rem 2.5rem}}
+.sec-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:.5rem}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.5rem,5vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:.6rem}
+.sec-sub{color:var(--muted);font-size:.9rem;line-height:1.7;max-width:520px}
 
-.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:2rem}
-.ftab{padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+/* FILTERS */
+.filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.5rem}
+.ftab{padding:.38rem .9rem;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
 .ftab.on,.ftab:hover{background:var(--green);color:#060d1a;border-color:var(--green)}
 
-.cases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-top:2rem}
-.case-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+/* CASE CARDS */
+.cases-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem}
+@media(min-width:500px){.cases-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.cases-grid{grid-template-columns:repeat(3,1fr)}}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
 .case-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--teal));opacity:0;transition:opacity .25s}
-.case-card:hover,.case-card.on{border-color:rgba(96,165,250,.5);background:var(--card2);transform:translateY(-3px)}
+.case-card:hover,.case-card.on{border-color:rgba(96,165,250,.5);background:var(--card2);transform:translateY(-2px)}
 .case-card:hover::after,.case-card.on::after{opacity:1}
-.ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.9rem}
-.chip-sec{font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.25rem .65rem;border-radius:100px}
+.ct{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.8rem}
+.chip-sec{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.22rem .6rem;border-radius:100px}
 .s-e{background:rgba(96,165,250,.15);color:var(--green)}
 .s-t{background:rgba(251,191,36,.15);color:#fbbf24}
-.s-i{background:rgba(45,212,191,.15);color:var(--teal)}
-.s-a{background:rgba(163,230,53,.15);color:var(--lime)}
+.s-i{background:rgba(167,139,250,.15);color:var(--teal)}
+.s-a{background:rgba(163,230,53,.15);color:#a3e635}
 .s-h{background:rgba(248,113,113,.15);color:#f87171}
-.co2-big{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--green);text-align:right}
-.co2-sm{font-size:.65rem;color:var(--muted)}
-.ctitle{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:.3rem}
-.corg{font-size:.78rem;color:var(--muted);margin-bottom:.6rem}
-.cdesc{font-size:.82rem;color:var(--muted);line-height:1.6}
-.cmeta{display:flex;gap:1.5rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border)}
-.cmeta-i{font-size:.7rem;color:var(--muted)}.cmeta-v{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:var(--teal)}
+.co2-big{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--green);text-align:right}
+.co2-sm{font-size:.62rem;color:var(--muted)}
+.ctitle{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:.25rem}
+.corg{font-size:.75rem;color:var(--muted);margin-bottom:.5rem}
+.cdesc{font-size:.8rem;color:var(--muted);line-height:1.55}
+.cmeta{display:flex;gap:1rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.cmeta-i{font-size:.68rem;color:var(--muted)}
+.cmeta-v{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;color:var(--teal)}
 
-.detail{background:var(--card);border:1px solid rgba(96,165,250,.4);border-radius:14px;padding:2rem;margin-top:1.5rem;animation:fadeUp .3s ease}
+/* DETAIL PANEL */
+.detail{background:var(--card);border:1px solid rgba(96,165,250,.4);border-radius:14px;padding:1.5rem;margin-top:1.25rem;animation:fadeUp .3s ease}
 .det-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.det-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem}
-.det-org{font-size:.8rem;color:var(--muted);margin-top:.25rem}
-.det-co2{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--green)}
-.det-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.5rem}
-@media(max-width:560px){.det-grid{grid-template-columns:1fr 1fr}}
-.det-m{background:var(--bg2);border-radius:10px;padding:.9rem}
-.det-mv{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--teal)}
-.det-mk{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+.det-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem}
+.det-org{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.det-co2{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--green)}
+.det-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+@media(min-width:560px){.det-grid{grid-template-columns:repeat(3,1fr)}}
+.det-m{background:var(--bg2);border-radius:10px;padding:.8rem}
+.det-mv{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--teal);word-break:break-word}
+.det-mk{font-size:.68rem;color:var(--muted);margin-top:.2rem}
 .prog{height:4px;background:var(--border);border-radius:4px;margin-top:1rem;overflow:hidden}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--teal));border-radius:4px;transition:width 1s ease}
-.sdg-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem}
-.sdg-chip{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2);color:var(--green);padding:.2rem .6rem;border-radius:6px;font-size:.7rem;font-weight:600}
+.sdg-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+.sdg-chip{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2);color:var(--green);padding:.2rem .55rem;border-radius:6px;font-size:.68rem;font-weight:600}
 
-.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
-@media(max-width:768px){.charts-grid{grid-template-columns:1fr}}
-.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
-.chart-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:1.25rem}
+/* CHARTS */
+.charts-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:768px){.charts-grid{grid-template-columns:1fr 1fr}}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem}
+.chart-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:1rem}
 .chart-full{grid-column:1/-1}
 
-.wi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;margin-top:2.5rem}
-.wi-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:.3rem}
-.wi-sub{color:var(--muted);font-size:.85rem;margin-bottom:1.75rem}
-.sl-row{display:flex;flex-direction:column;gap:1.25rem}
-.sl-item label{font-size:.83rem;color:var(--muted);margin-bottom:.4rem;display:block}
+/* WHATIF */
+.wi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-top:2rem}
+.wi-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.25rem}
+.wi-sub{color:var(--muted);font-size:.82rem;margin-bottom:1.5rem}
+.sl-row{display:flex;flex-direction:column;gap:1.1rem}
+.sl-item label{font-size:.8rem;color:var(--muted);margin-bottom:.35rem;display:block}
 .sl-val{color:var(--green);font-weight:700}
 .sl-item input[type=range]{width:100%;accent-color:var(--green);cursor:pointer}
-.wi-result{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.75rem;padding:1.5rem;background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.18);border-radius:12px}
-@media(max-width:500px){.wi-result{grid-template-columns:1fr}}
-.wr-num{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:var(--green)}
-.wr-label{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+.wi-result{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1.5rem;padding:1.25rem;background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.18);border-radius:12px}
+@media(max-width:400px){.wi-result{grid-template-columns:1fr;gap:1rem}}
+.wr-num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--green)}
+.wr-label{font-size:.68rem;color:var(--muted);margin-top:.15rem}
 
-.cb-wrap{position:fixed;bottom:1.75rem;right:1.75rem;z-index:500}
-.cb-toggle{width:58px;height:58px;border-radius:50%;background:var(--green);color:#060d1a;border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(96,165,250,.35);transition:all .25s}
+/* CHATBOT */
+.cb-wrap{position:fixed;bottom:1.25rem;right:1.25rem;z-index:500}
+.cb-toggle{width:54px;height:54px;border-radius:50%;background:var(--green);color:#060d1a;border:none;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(96,165,250,.4);transition:all .25s}
 .cb-toggle:hover{transform:scale(1.1);background:var(--lime)}
-.cb-win{position:absolute;bottom:70px;right:0;width:360px;background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.7);animation:slideUp .3s ease}
-@media(max-width:420px){.cb-win{width:calc(100vw - 2rem)}}
-.cb-head{padding:.9rem 1.1rem;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.7rem}
-.cb-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--teal));display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-.cb-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem}
-.cb-status{font-size:.68rem;color:var(--green)}
-.cb-close{margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.3rem;line-height:1;padding:.2rem}
-.cb-msgs{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.65rem;max-height:300px}
+.cb-win{position:fixed;bottom:85px;right:1.25rem;left:1.25rem;max-width:360px;margin-left:auto;background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.7);animation:slideUp .3s ease;max-height:72vh}
+@media(min-width:420px){.cb-win{left:auto;width:340px}}
+.cb-head{padding:.85rem 1rem;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.cb-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--teal));display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.cb-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem}
+.cb-status{font-size:.65rem;color:var(--green)}
+.cb-close{margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.4rem;line-height:1;padding:.2rem .4rem}
+.cb-msgs{flex:1;overflow-y:auto;padding:.85rem;display:flex;flex-direction:column;gap:.6rem;-webkit-overflow-scrolling:touch}
 .cb-msgs::-webkit-scrollbar{width:3px}
 .cb-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-.msg{max-width:82%;padding:.6rem .95rem;border-radius:12px;font-size:.82rem;line-height:1.55}
+.msg{max-width:85%;padding:.55rem .9rem;border-radius:12px;font-size:.82rem;line-height:1.55}
 .msg.bot{background:var(--card);color:var(--text);border-bottom-left-radius:3px;align-self:flex-start}
-.msg.user{background:var(--green3);color:#d1fae5;border-bottom-right-radius:3px;align-self:flex-end}
+.msg.user{background:var(--green3);color:#dbeafe;border-bottom-right-radius:3px;align-self:flex-end}
 .msg.typing{color:var(--muted);font-style:italic}
-.cb-chips{display:flex;flex-wrap:wrap;gap:.35rem;padding:.5rem 1rem .6rem}
-.sug{background:var(--card);border:1px solid var(--border);border-radius:100px;padding:.28rem .7rem;font-size:.7rem;color:var(--muted);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.cb-chips{display:flex;flex-wrap:wrap;gap:.3rem;padding:.4rem .85rem .5rem;flex-shrink:0}
+.sug{background:var(--card);border:1px solid var(--border);border-radius:100px;padding:.25rem .65rem;font-size:.67rem;color:var(--muted);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
 .sug:hover{border-color:var(--green);color:var(--green)}
-.cb-in-row{padding:.65rem .9rem;border-top:1px solid var(--border);display:flex;gap:.5rem}
-.cb-in{flex:1;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:.55rem .9rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none}
+.cb-in-row{padding:.6rem .85rem;border-top:1px solid var(--border);display:flex;gap:.4rem;flex-shrink:0}
+.cb-in{flex:1;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:.5rem .85rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.82rem;outline:none;min-width:0}
 .cb-in:focus{border-color:var(--green)}
-.cb-send{background:var(--green);color:#060d1a;border:none;border-radius:9px;padding:.55rem 1rem;cursor:pointer;font-weight:700;font-size:.82rem;transition:all .2s;font-family:'DM Sans',sans-serif}
+.cb-send{background:var(--green);color:#060d1a;border:none;border-radius:9px;padding:.5rem .9rem;cursor:pointer;font-weight:700;font-size:.82rem;transition:all .2s;font-family:'DM Sans',sans-serif;white-space:nowrap}
 .cb-send:hover{background:var(--lime)}
 
-footer{padding:1.75rem 2.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem;flex-wrap:wrap;gap:.5rem}
+/* FOOTER */
+footer{padding:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.4rem;color:var(--muted);font-size:.72rem;text-align:center}
+@media(min-width:600px){footer{flex-direction:row;justify-content:space-between;padding:1.5rem 2.5rem;text-align:left}}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
@@ -191,7 +209,7 @@ footer{padding:1.75rem 2.5rem;border-top:1px solid var(--border);display:flex;ju
   <div class="sec-title">Visualizing Impact</div>
   <div class="sec-sub">CO₂ reductions across case studies and sectors using verified data.</div>
   <div class="charts-grid">
-    <div class="chart-card chart-full"><div class="chart-title">CO₂ Reduced per Case Study (thousand tons)</div><canvas id="barChart" height="100"></canvas></div>
+    <div class="chart-card chart-full"><div class="chart-title">CO₂ Reduced per Case Study (thousand tons)</div><canvas id="barChart"></canvas></div>
     <div class="chart-card"><div class="chart-title">Reduction by Sector</div><canvas id="pieChart"></canvas></div>
     <div class="chart-card"><div class="chart-title">Households Impacted (thousands)</div><canvas id="hhChart"></canvas></div>
   </div>
@@ -234,7 +252,7 @@ footer{padding:1.75rem 2.5rem;border-top:1px solid var(--border);display:flex;ju
     </div>
     <div class="cb-chips" id="chatChips"></div>
     <div class="cb-in-row">
-      <input class="cb-in" id="chatInput" placeholder="Ask about carbon, climate, cases..." onkeydown="if(event.key==='Enter')sendMsg()"/>
+      <input class="cb-in" id="chatInput" placeholder="Ask about carbon, climate..." onkeydown="if(event.key==='Enter')sendMsg()"/>
       <button class="cb-send" onclick="sendMsg()">Send</button>
     </div>
   </div>
@@ -248,19 +266,20 @@ const CASES=[
   {id:3,title:"Interface – Carbon Negative Factory",org:"Interface Inc., USA/Global",sector:"Industry",co2:96000,unit:"tons/yr",costSaved:"$400M cumulative",energySaved:"800M kWh total",replicable:true,desc:"Interface became carbon negative by redesigning carpet tiles to use recycled ocean plastics, reducing manufacturing waste by 96% and achieving net-negative emissions.",baseline:"1.4 kg CO₂/m² carpet",final:"-0.2 kg CO₂/m² carpet",households:26000,sdg:["SDG 9","SDG 12","SDG 13"],source:"CDP Corporate Disclosure 2023"},
   {id:4,title:"Sikkim Organic State Initiative",org:"Government of Sikkim, India",sector:"Agriculture",co2:52000,unit:"tons/yr",costSaved:"₹1200 Cr farmer income",energySaved:"N/A",replicable:true,desc:"Sikkim converted all 75,000 hectares of farmland to organic by 2016, eliminating synthetic fertilizers, reducing N₂O emissions, and boosting biodiversity significantly.",baseline:"Chemical farming statewide",final:"100% Organic farming",households:65000,sdg:["SDG 2","SDG 12","SDG 15"],source:"NITI Aayog / FAO 2022"},
   {id:5,title:"Empire State Building Retrofit",org:"Empire State Realty Trust, USA",sector:"Housing",co2:105000,unit:"tons total",costSaved:"$4.4M/yr",energySaved:"38% reduction",replicable:true,desc:"A landmark retrofit turned one of the world's most iconic skyscrapers into an energy efficiency model, cutting emissions by 105,000 tons over 15 years through insulation and smart controls.",baseline:"2009 baseline energy",final:"38% lower consumption",households:28000,sdg:["SDG 11","SDG 13"],source:"ENERGY STAR / IEA Buildings 2022"},
-  {id:6,title:"Ørsted Wind Energy Pivot",org:"Ørsted A/S, Denmark",sector:"Energy",co2:12500000,unit:"tons total",costSaved:"€22B revenue",energySaved:"21 GW offshore wind",replicable:false,desc:"Ørsted divested all oil & gas assets and invested entirely in offshore wind, cutting its own carbon footprint by 87% and powering 17.9 million homes with clean energy.",baseline:"85% fossil fuels (2006)",final:"89% renewables (2023)",households:17900000,sdg:["SDG 7","SDG 13","SDG 17"],source:"CDP A-List / Ørsted Report 2023"},
-  {id:7,title:"Rotterdam Green Rooftops",org:"City of Rotterdam, Netherlands",sector:"Housing",co2:33000,unit:"tons/yr",costSaved:"€50M stormwater savings",energySaved:"280 GWh/yr",replicable:true,desc:"Rotterdam's program covers 500+ buildings with solar panels and vegetation, cutting stormwater runoff by 60% and adding 280 GWh of clean energy while reducing urban heat.",baseline:"Conventional rooftops",final:"Green + Solar rooftops",households:9000,sdg:["SDG 11","SDG 13","SDG 15"],source:"UNEP Cities & Climate 2023"},
-  {id:8,title:"Mahindra Zero-Waste Manufacturing",org:"Mahindra Group, India",sector:"Industry",co2:18500,unit:"tons/yr",costSaved:"₹45 Cr/yr",energySaved:"14M kWh/yr",replicable:true,desc:"Mahindra achieved zero-waste-to-landfill across its manufacturing plants through composting, e-waste recovery, and circular material use — a replicable Indian corporate model.",baseline:"18% waste to landfill",final:"0% waste to landfill",households:5000,sdg:["SDG 12","SDG 13"],source:"Mahindra Sustainability Report 2023"},
-  {id:9,title:"Amsterdam Circular Economy",org:"City of Amsterdam, Netherlands",sector:"Industry",co2:900000,unit:"tons target",costSaved:"€85M annually",energySaved:"Multiple sectors",replicable:true,desc:"Amsterdam's circular strategy covers food waste, consumer goods and construction — already diverting 900,000 tons CO₂-equivalent through material reuse and repair economy.",baseline:"Linear consumption model",final:"Circular city model",households:450000,sdg:["SDG 11","SDG 12","SDG 13"],source:"Circle Economy / Amsterdam Municipality 2023"},
+  {id:6,title:"Orsted Wind Energy Pivot",org:"Orsted A/S, Denmark",sector:"Energy",co2:12500000,unit:"tons total",costSaved:"22B EUR revenue",energySaved:"21 GW offshore wind",replicable:false,desc:"Orsted divested all oil and gas assets and invested entirely in offshore wind, cutting its own carbon footprint by 87% and powering 17.9 million homes with clean energy.",baseline:"85% fossil fuels (2006)",final:"89% renewables (2023)",households:17900000,sdg:["SDG 7","SDG 13","SDG 17"],source:"CDP A-List / Orsted Report 2023"},
+  {id:7,title:"Rotterdam Green Rooftops",org:"City of Rotterdam, Netherlands",sector:"Housing",co2:33000,unit:"tons/yr",costSaved:"50M EUR stormwater savings",energySaved:"280 GWh/yr",replicable:true,desc:"Rotterdam's program covers 500+ buildings with solar panels and vegetation, cutting stormwater runoff by 60% and adding 280 GWh of clean energy while reducing urban heat.",baseline:"Conventional rooftops",final:"Green + Solar rooftops",households:9000,sdg:["SDG 11","SDG 13","SDG 15"],source:"UNEP Cities & Climate 2023"},
+  {id:8,title:"Mahindra Zero-Waste Manufacturing",org:"Mahindra Group, India",sector:"Industry",co2:18500,unit:"tons/yr",costSaved:"45 Cr INR/yr",energySaved:"14M kWh/yr",replicable:true,desc:"Mahindra achieved zero-waste-to-landfill across its manufacturing plants through composting, e-waste recovery, and circular material use — a replicable Indian corporate model.",baseline:"18% waste to landfill",final:"0% waste to landfill",households:5000,sdg:["SDG 12","SDG 13"],source:"Mahindra Sustainability Report 2023"},
+  {id:9,title:"Amsterdam Circular Economy",org:"City of Amsterdam, Netherlands",sector:"Industry",co2:900000,unit:"tons target",costSaved:"85M EUR annually",energySaved:"Multiple sectors",replicable:true,desc:"Amsterdam's circular strategy covers food waste, consumer goods and construction — already diverting 900,000 tons CO2-equivalent through material reuse and repair economy.",baseline:"Linear consumption model",final:"Circular city model",households:450000,sdg:["SDG 11","SDG 12","SDG 13"],source:"Circle Economy / Amsterdam Municipality 2023"},
   {id:10,title:"M-KOPA Solar for Rural Africa",org:"M-KOPA Solar, East Africa",sector:"Energy",co2:2700000,unit:"tons total",costSaved:"$650M household savings",energySaved:"3.5M kWh/day",replicable:true,desc:"M-KOPA's mobile-payment solar model connected over 3 million off-grid African homes to affordable clean energy, replacing toxic kerosene and saving each family $500+ over the product lifetime.",baseline:"Kerosene lamps, 3M homes",final:"Solar-powered, 3M homes",households:3000000,sdg:["SDG 1","SDG 7","SDG 13"],source:"GOGLA / IEA Off-Grid Solar 2023"}
 ];
 
-const SC={Energy:"#60a5fa",Transport:"#fbbf24",Industry:"#2dd4bf",Agriculture:"#a3e635",Housing:"#f87171"};
+const SC={Energy:"#60a5fa",Transport:"#fbbf24",Industry:"#a78bfa",Agriculture:"#a3e635",Housing:"#f87171"};
 const SCL={Energy:"s-e",Transport:"s-t",Industry:"s-i",Agriculture:"s-a",Housing:"s-h"};
-const SUGS=["Which case has highest CO₂ impact?","What is a carbon footprint?","How can India reduce emissions?","Which project is most replicable?"];
+const SUGS=["Which case has highest CO2 impact?","What is a carbon footprint?","How can India reduce emissions?","Which project is most replicable?"];
 
-let activeFilter="All", activeCase=null;
+let activeFilter="All",activeCase=null;
 const maxCO2=Math.max(...CASES.map(c=>c.co2));
+const isMobile=window.innerWidth<600;
 
 function fmt(n){if(n>=1000000)return(n/1e6).toFixed(1)+"M";if(n>=1000)return(n/1000).toFixed(0)+"K";return n}
 
@@ -276,15 +295,15 @@ function renderCards(){
     <div class="case-card ${activeCase&&activeCase.id===c.id?"on":""}" onclick="selectCase(${c.id})">
       <div class="ct">
         <span class="chip-sec ${SCL[c.sector]}">${c.sector}</span>
-        <div style="text-align:right"><div class="co2-big">${fmt(c.co2)}</div><div class="co2-sm">tons CO₂ · ${c.unit.includes("yr")?"per yr":"total"}</div></div>
+        <div style="text-align:right"><div class="co2-big">${fmt(c.co2)}</div><div class="co2-sm">tons CO2 · ${c.unit.includes("yr")?"per yr":"total"}</div></div>
       </div>
       <div class="ctitle">${c.title}</div>
       <div class="corg">📍 ${c.org}</div>
-      <div class="cdesc">${c.desc.slice(0,100)}…</div>
+      <div class="cdesc">${c.desc.slice(0,95)}…</div>
       <div class="cmeta">
         <div class="cmeta-i"><div class="cmeta-v">${c.costSaved}</div>Cost Saved</div>
         <div class="cmeta-i"><div class="cmeta-v">${c.replicable?"✅ Yes":"⚡ Hard"}</div>Replicable</div>
-        <div class="cmeta-i"><div class="cmeta-v">${c.sdg[0]}</div>Primary SDG</div>
+        <div class="cmeta-i"><div class="cmeta-v">${c.sdg[0]}</div>SDG</div>
       </div>
     </div>`).join("");
 }
@@ -302,20 +321,20 @@ function renderDetail(){
   el.innerHTML=`
     <div class="detail">
       <div class="det-top">
-        <div><div class="det-title">${c.title}</div><div class="det-org">📍 ${c.org} · Source: ${c.source}</div></div>
-        <div style="text-align:right"><div class="det-co2">${fmt(c.co2)}</div><div style="font-size:.75rem;color:var(--muted)">tons CO₂ · ${c.unit}</div></div>
+        <div><div class="det-title">${c.title}</div><div class="det-org">📍 ${c.org} · ${c.source}</div></div>
+        <div style="text-align:right;flex-shrink:0"><div class="det-co2">${fmt(c.co2)}</div><div style="font-size:.7rem;color:var(--muted)">tons CO2 · ${c.unit}</div></div>
       </div>
-      <p style="color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:1rem">${c.desc}</p>
+      <p style="color:var(--muted);font-size:.85rem;line-height:1.65;margin-top:.9rem">${c.desc}</p>
       <div class="det-grid">
-        <div class="det-m"><div class="det-mv">${c.baseline}</div><div class="det-mk">Baseline (Before)</div></div>
-        <div class="det-m"><div class="det-mv">${c.final}</div><div class="det-mk">After Intervention</div></div>
-        <div class="det-m"><div class="det-mv">${c.costSaved}</div><div class="det-mk">Annual Cost Saved</div></div>
+        <div class="det-m"><div class="det-mv">${c.baseline}</div><div class="det-mk">Before</div></div>
+        <div class="det-m"><div class="det-mv">${c.final}</div><div class="det-mk">After</div></div>
+        <div class="det-m"><div class="det-mv">${c.costSaved}</div><div class="det-mk">Cost Saved</div></div>
         <div class="det-m"><div class="det-mv">${c.energySaved}</div><div class="det-mk">Energy Impact</div></div>
-        <div class="det-m"><div class="det-mv">${c.households.toLocaleString()}</div><div class="det-mk">Households Impacted</div></div>
-        <div class="det-m"><div class="det-mv">${c.replicable?"✅ Replicable":"⚡ Complex"}</div><div class="det-mk">India Replicability</div></div>
+        <div class="det-m"><div class="det-mv">${c.households.toLocaleString()}</div><div class="det-mk">Households</div></div>
+        <div class="det-m"><div class="det-mv">${c.replicable?"✅ Yes":"⚡ Complex"}</div><div class="det-mk">India Replicable</div></div>
       </div>
-      <div style="margin-top:1rem">
-        <div style="font-size:.72rem;color:var(--muted);margin-bottom:.4rem">CO₂ Impact vs Dataset Maximum</div>
+      <div style="margin-top:.9rem">
+        <div style="font-size:.68rem;color:var(--muted);margin-bottom:.35rem">CO2 Impact vs Dataset Maximum</div>
         <div class="prog"><div class="prog-fill" style="width:${pct}%"></div></div>
       </div>
       <div class="sdg-chips">${c.sdg.map(s=>`<span class="sdg-chip">${s}</span>`).join("")}</div>
@@ -324,33 +343,32 @@ function renderDetail(){
 }
 
 function initCharts(){
-  const chartDefaults={color:"#6b8fbd",borderColor:"#1a3560"};
-  Chart.defaults.color="#6b8f6d";
+  Chart.defaults.color="#6b8fbd";
 
   new Chart(document.getElementById("barChart"),{
     type:"bar",
     data:{
-      labels:CASES.map(c=>c.title.split(" ").slice(0,3).join(" ")),
-      datasets:[{data:CASES.map(c=>Math.round(c.co2/1000)),backgroundColor:CASES.map(c=>SC[c.sector]),borderRadius:6,borderSkipped:false}]
+      labels:CASES.map(c=>isMobile?c.title.split(" ")[0]:c.title.split(" ").slice(0,3).join(" ")),
+      datasets:[{data:CASES.map(c=>Math.round(c.co2/1000)),backgroundColor:CASES.map(c=>SC[c.sector]),borderRadius:5,borderSkipped:false}]
     },
-    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.parsed.y.toLocaleString()}K tons CO₂`}}},scales:{x:{ticks:{color:"#6b8fbd",font:{size:11}},grid:{color:"#1e3020"}},y:{ticks:{color:"#6b8fbd",font:{size:11}},grid:{color:"#1e3020"}}},responsive:true,maintainAspectRatio:true}
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.parsed.y.toLocaleString()}K tons CO2`}}},scales:{x:{ticks:{color:"#6b8fbd",font:{size:isMobile?9:11},maxRotation:45},grid:{color:"#1a3560"}},y:{ticks:{color:"#6b8fbd",font:{size:isMobile?9:11}},grid:{color:"#1a3560"}}},responsive:true,maintainAspectRatio:true}
   });
 
   const sectorTotals={};
   CASES.forEach(c=>{sectorTotals[c.sector]=(sectorTotals[c.sector]||0)+c.co2});
   new Chart(document.getElementById("pieChart"),{
     type:"doughnut",
-    data:{labels:Object.keys(sectorTotals),datasets:[{data:Object.values(sectorTotals),backgroundColor:Object.keys(sectorTotals).map(s=>SC[s]),borderWidth:2,borderColor:"#132015"}]},
-    options:{plugins:{legend:{labels:{color:"#6b8fbd",font:{size:11}}},tooltip:{callbacks:{label:ctx=>`${(ctx.parsed/1e6).toFixed(2)}M tons CO₂`}}},responsive:true}
+    data:{labels:Object.keys(sectorTotals),datasets:[{data:Object.values(sectorTotals),backgroundColor:Object.keys(sectorTotals).map(s=>SC[s]),borderWidth:2,borderColor:"#0f1f3d"}]},
+    options:{plugins:{legend:{labels:{color:"#6b8fbd",font:{size:isMobile?10:11},boxWidth:12}},tooltip:{callbacks:{label:ctx=>`${(ctx.parsed/1e6).toFixed(2)}M tons CO2`}}},responsive:true}
   });
 
   new Chart(document.getElementById("hhChart"),{
     type:"bar",
     data:{
       labels:CASES.map(c=>c.title.split(" ").slice(0,2).join(" ")),
-      datasets:[{data:CASES.map(c=>Math.round(c.households/1000)),backgroundColor:"#2dd4bf",borderRadius:6}]
+      datasets:[{data:CASES.map(c=>Math.round(c.households/1000)),backgroundColor:"#a78bfa",borderRadius:5}]
     },
-    options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.parsed.x.toLocaleString()}K households`}}},scales:{x:{ticks:{color:"#6b8fbd",font:{size:10}},grid:{color:"#1e3020"}},y:{ticks:{color:"#6b8fbd",font:{size:10}},grid:{color:"#1e3020"}}},responsive:true}
+    options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.parsed.x.toLocaleString()}K households`}}},scales:{x:{ticks:{color:"#6b8fbd",font:{size:isMobile?9:10}},grid:{color:"#1a3560"}},y:{ticks:{color:"#6b8fbd",font:{size:isMobile?9:10}},grid:{color:"#1a3560"}}},responsive:true}
   });
 }
 
@@ -370,13 +388,10 @@ function updateSim(){
   document.getElementById("simTrees").textContent=trees>=1000000?(trees/1e6).toFixed(1)+"M":trees.toLocaleString();
 }
 
-// CHATBOT
-let chatOpen=false, chatHistory=[];
+let chatOpen=false,chatHistory=[];
 const SYS=`You are GreenBot, a sustainability AI assistant for the GreenTrack dashboard — a 1M1B Green Internship Batch 7 capstone project on Project #24 (Low-Carbon Case Study Dashboard).
-
 The dashboard contains these 10 verified case studies:
-${CASES.map(c=>`- ${c.title} (${c.org}): ${c.desc.slice(0,80)}. CO₂ reduced: ${c.co2.toLocaleString()} ${c.unit}. Source: ${c.source}`).join("\n")}
-
+${CASES.map(c=>`- ${c.title} (${c.org}): ${c.desc.slice(0,80)}. CO2 reduced: ${c.co2.toLocaleString()} ${c.unit}. Source: ${c.source}`).join("\n")}
 Answer questions about carbon footprints, climate change, these case studies, India sustainability, and how to reduce emissions. Keep answers to 2-4 sentences, friendly and data-driven. Always mention numbers when possible.`;
 
 function toggleChat(){
@@ -423,7 +438,6 @@ async function sendMsg(text){
   }
 }
 
-// INIT
 renderFilters();
 renderCards();
 initCharts();
